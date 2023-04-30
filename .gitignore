@@ -1,4 +1,5 @@
-mario*
+mario
+*.o
 *.exe
 curses.h
 pdcurses.a
