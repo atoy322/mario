@@ -1,0 +1,6 @@
+mario*
+*.exe
+curses.h
+pdcurses.a
+*.png
+*.txt
