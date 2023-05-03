@@ -1,33 +1,40 @@
+NAME := mario
 
 ifeq ($(OS),Windows_NT)
 
 CFLAGS  := -Wall -O2 -I./include
 LDFLAGS := -L./lib -l:pdcurses.a
 
-mario.exe: main.o
-	gcc main.o -o mario.exe $(LDFLAGS)
+$(NAME).exe: main.o mario.o
+	gcc main.o mario.o -o $(NAME).exe $(LDFLAGS)
 
 main.o: main.c
 	gcc -c main.c $(CFLAGS)
 
+mario.o: mario.c
+	gcc -c mario.c $(CFLAGS)
+
 .PHONY: clean
 clean:
-	-rm mario.exe *.o
+	-rm $(NAME).exe *.o
 
 else
 
 CFLAGS  := -Wall -O2
 LDFLAGS := -lcurses
 
-mario: main.o
-	gcc main.o -o mario $(LDFLAGS)
+$(NAME): main.o mario.o
+	gcc main.o mario.o -o $(NAME) $(LDFLAGS)
 
-mario.o: mario.c
+main.o: main.c
 	gcc -c main.c $(CFLAGS)
+
+mario.o: mario.o
+	gcc -c mario.c $(CFLAGS)
 
 .PHONY: clean
 clean:
-	-rm mario *.o
+	-rm $(NAME) *.o
 
 endif
 
