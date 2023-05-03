@@ -68,12 +68,14 @@ static char marios[3][16][30] = {
 //static short mskin[3]  = {1018, 770, 493};
 
 void draw_mario(int, int, int);
+double gettime(void);
 
 int main(void) {
     int w, h;
-    clock_t t, t_old;
+    double t, t_old;
 
-    t_old = clock();
+    t = gettime();
+    t_old = gettime();
 
     initscr();
     curs_set(0);
@@ -94,11 +96,11 @@ int main(void) {
         draw_mario(i%3, h-M_HEIGHT, (-M_WIDTH)+i);
         refresh();
 
-        while((t - t_old)<50) {
-            t = clock();
+        while((t - t_old)<0.05) {
+            t = gettime();
             usleep(10);
         }
-        t_old = clock();
+        t_old = gettime();
     }
 
     //getch();
@@ -133,4 +135,11 @@ void draw_mario(int id, int py, int px) {
             }
         }
     }
+}
+
+
+double gettime(void) {
+    struct timespec ts;
+    clock_gettime(CLOCK_REALTIME, &ts);
+    return (double)ts.tv_sec + (double)ts.tv_nsec*1e-9;
 }
