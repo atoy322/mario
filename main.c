@@ -91,7 +91,7 @@ int main(void) {
 
     getmaxyx(stdscr, h, w);
 
-    for(int i=0; i<w+M_WIDTH*2; i++) {
+    for(int i=0; i<w+M_WIDTH; i++) {
         clear();
         draw_mario(i%3, h-M_HEIGHT, (-M_WIDTH)+i);
         refresh();
