@@ -16,9 +16,9 @@ int main(int argc, char ** argv) {
     initscr();
     curs_set(0);
     start_color();
-    //init_color(15, mred[0], mred[1], mred[2]);
-    //init_color(16, mgreen[0], mgreen[1], mgreen[2]);
-    //init_color(322, mskin[0], mskin[1], mskin[2]);
+    init_color(COLOR_RED, mred[0], mred[1], mred[2]);
+    init_color(COLOR_GREEN, mgreen[0], mgreen[1], mgreen[2]);
+    init_color(COLOR_YELLOW, mskin[0], mskin[1], mskin[2]);
     init_pair(1, COLOR_RED, COLOR_RED);
     init_pair(2, COLOR_GREEN, COLOR_GREEN);
     init_pair(3, COLOR_YELLOW, COLOR_YELLOW);
