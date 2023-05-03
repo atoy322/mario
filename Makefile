@@ -29,7 +29,7 @@ $(NAME): main.o mario.o
 main.o: main.c
 	gcc -c main.c $(CFLAGS)
 
-mario.o: mario.o
+mario.o: mario.c
 	gcc -c mario.c $(CFLAGS)
 
 .PHONY: clean
