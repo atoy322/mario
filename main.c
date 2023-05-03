@@ -98,7 +98,7 @@ int main(void) {
 
         while((t - t_old)<0.05) {
             t = gettime();
-            usleep(10);
+            usleep(100);
         }
         t_old = gettime();
     }
