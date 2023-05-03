@@ -1,5 +1,6 @@
 #include <curses.h>
 #include <unistd.h>
+#include <time.h>
 
 #define M_WIDTH  30
 #define M_HEIGHT 16
@@ -70,6 +71,9 @@ void draw_mario(int, int, int);
 
 int main(void) {
     int w, h;
+    clock_t t, t_old;
+
+    t_old = clock();
 
     initscr();
     curs_set(0);
@@ -87,9 +91,14 @@ int main(void) {
 
     for(int i=0; i<w+M_WIDTH*2; i++) {
         clear();
-        draw_mario(i%3, (int)((float)h*0.45), (-M_WIDTH)+i);
+        draw_mario(i%3, h-M_HEIGHT, (-M_WIDTH)+i);
         refresh();
-        usleep(1000);
+
+        while((t - t_old)<50) {
+            t = clock();
+            usleep(10);
+        }
+        t_old = clock();
     }
 
     //getch();
