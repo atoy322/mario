@@ -1,7 +1,8 @@
+#include <signal.h>
 #include "mario.h"
 
 int main(int argc, char ** argv) {
-    int w, h;
+    int w, h, key, id;
     double t, t_old, delay=0.05;
     options_t opt;
 
@@ -15,6 +16,8 @@ int main(int argc, char ** argv) {
 
     initscr();
     curs_set(0);
+    signal(SIGINT, SIG_IGN);
+    nodelay(stdscr, true);
     start_color();
     init_color(COLOR_RED, mred[0], mred[1], mred[2]);
     init_color(COLOR_GREEN, mgreen[0], mgreen[1], mgreen[2]);
@@ -28,10 +31,22 @@ int main(int argc, char ** argv) {
     getmaxyx(stdscr, h, w);
 
     for(int i=0; i<w+M_WIDTH; i++) {
+        id = i%3;
+
+        if((i == (w+M_WIDTH)/2) && (opt.stop)) {
+            id = 3;
+            draw_mario(id, h-M_HEIGHT, (-M_WIDTH)+i);
+            refresh();
+
+            sleep(2);
+        }
+
+        key = getch();
+
         erase();
         attrset(0);
-        //addstr("pepepe");
-        draw_mario(i%3, h-M_HEIGHT, (-M_WIDTH)+i);
+        printw("KEY: %d", key);
+        draw_mario(id, h-M_HEIGHT, (-M_WIDTH)+i);
         refresh();
 
         while((t - t_old)<delay) {

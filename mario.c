@@ -35,14 +35,20 @@ double gettime(void) {
 }
 
 void parse(int argc, char ** argv, options_t * op) {
+    char * arg;
     op->fast = false;
+    op->stop = false;
 
     for(int i=0; i<argc; i++) {
-        if(argv[i][0] != '-')
+        arg = argv[i];
+
+        if(arg[0] != '-')
             continue;
 
-        if(argv[i][1] == 'f') {
+        if(arg[1] == 'f') {
             op->fast = true;
+        } else if(arg[1] == 's') {
+            op->stop = true;
         }
     }
 }
