@@ -1,6 +1,12 @@
 #include <signal.h>
 #include "mario.h"
 
+bool stop_flag;
+void ctrl_c_handler(int sig) {
+    signal(SIGINT, SIG_IGN);
+    stop_flag = true;
+}
+
 int main(int argc, char ** argv) {
     int w, h, id;
     double t, t_old, delay=0.05;
@@ -16,7 +22,7 @@ int main(int argc, char ** argv) {
 
     initscr();
     curs_set(0);
-    signal(SIGINT, SIG_IGN);
+    signal(SIGINT, ctrl_c_handler);
     start_color();
     init_color(COLOR_RED, mred[0], mred[1], mred[2]);
     init_color(COLOR_GREEN, mgreen[0], mgreen[1], mgreen[2]);
@@ -32,13 +38,15 @@ int main(int argc, char ** argv) {
     for(int i=0; i<w+M_WIDTH; i++) {
         id = i%3;
 
-        if((i == (w+M_WIDTH)/2) && (opt.stop)) {
+        if(((i == (w+M_WIDTH)/2) && (opt.stop)) || stop_flag) {
             id = 3;
+            stop_flag = false;
             erase();
             draw_mario(id, h-M_HEIGHT, (-M_WIDTH)+i);
             refresh();
 
             sleep(2);
+            signal(SIGINT, ctrl_c_handler);
         }
 
         erase();
