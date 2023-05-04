@@ -69,7 +69,7 @@ static char marios[3][16][30] = {
 
 static short mred[3]   = {995, 281, 116};
 static short mgreen[3] = {634, 526, 96};
-static short mskin[3]  = {1018, 770, 493};
+static short mskin[3]  = {1000, 770, 493};
 
 typedef struct {
     bool fast;
