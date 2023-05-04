@@ -30,8 +30,6 @@ int main(int argc, char ** argv) {
     init_pair(1, COLOR_RED, COLOR_RED);
     init_pair(2, COLOR_GREEN, COLOR_GREEN);
     init_pair(3, COLOR_YELLOW, COLOR_YELLOW);
-    //init_pair(4, COLOR_WHITE, COLOR_CYAN);
-    //bkgd(COLOR_PAIR(4));
 
     getmaxyx(stdscr, h, w);
 
@@ -61,11 +59,8 @@ int main(int argc, char ** argv) {
         t_old = gettime();
     }
 
-    //getch();
-
     endwin();
 
-    //printf("COLOR_RED:%d\nCOLOR_GREEN:%d\nCOLOR_YELLOW:%d\nCOLOR_BLUE:%d\nCOLOR_CYAN:%d\nPAIR(1):%ld\nPAIR(2):%ld\nPAIR(3):%ld\nPAIR(4):%ld\n", COLOR_RED, COLOR_GREEN, COLOR_YELLOW, COLOR_BLUE, COLOR_CYAN, COLOR_PAIR(1), COLOR_PAIR(2), COLOR_PAIR(3), COLOR_PAIR(4));
     return 0;
 }
 
