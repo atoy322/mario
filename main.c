@@ -2,7 +2,7 @@
 #include "mario.h"
 
 int main(int argc, char ** argv) {
-    int w, h, key, id;
+    int w, h, id;
     double t, t_old, delay=0.05;
     options_t opt;
 
@@ -17,7 +17,6 @@ int main(int argc, char ** argv) {
     initscr();
     curs_set(0);
     signal(SIGINT, SIG_IGN);
-    nodelay(stdscr, true);
     start_color();
     init_color(COLOR_RED, mred[0], mred[1], mred[2]);
     init_color(COLOR_GREEN, mgreen[0], mgreen[1], mgreen[2]);
@@ -35,17 +34,15 @@ int main(int argc, char ** argv) {
 
         if((i == (w+M_WIDTH)/2) && (opt.stop)) {
             id = 3;
+            erase();
             draw_mario(id, h-M_HEIGHT, (-M_WIDTH)+i);
             refresh();
 
             sleep(2);
         }
 
-        key = getch();
-
         erase();
         attrset(0);
-        printw("KEY: %d", key);
         draw_mario(id, h-M_HEIGHT, (-M_WIDTH)+i);
         refresh();
 
