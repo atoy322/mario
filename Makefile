@@ -11,7 +11,7 @@ $(NAME).exe: main.o mario.o
 main.o: main.c
 	gcc -c main.c $(CFLAGS)
 
-mario.o: mario.c
+mario.o: mario.c mario.h
 	gcc -c mario.c $(CFLAGS)
 
 .PHONY: clean
@@ -29,7 +29,7 @@ $(NAME): main.o mario.o
 main.o: main.c
 	gcc -c main.c $(CFLAGS)
 
-mario.o: mario.c
+mario.o: mario.c mario.h
 	gcc -c mario.c $(CFLAGS)
 
 .PHONY: clean
