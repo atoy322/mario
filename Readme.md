@@ -24,3 +24,11 @@ mario -s
 - gcc
 - make
 - curses (or pdcurses if your OS is Windows)
+
+# How to Build
+1. build curses (or pdcurses) and create `libcurses.a` (or `pdcurses.a`)
+2. put it into the directory named `lib`
+3. put `curses.h` into directory named `include`
+4. run `make`
+
+
