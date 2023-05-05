@@ -3,7 +3,8 @@ This is a tiny C program which allows you to let Mario run in your terminal.
 ![running](./screen/run.gif)
 
 It is inspired by SL command.
-__There is no use typing CTRL-C while Mario is running because it does not stop the program but stops Mario for 2sec.__
+> **Warning**
+> There is no use typing CTRL-C while Mario is running because it does not stop the program but stops Mario for 2sec.
 
 ---
 
