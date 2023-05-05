@@ -1,7 +1,9 @@
 # Mario runs in your terminal.
 This is a tiny C program which allows you to let Mario run in your terminal.
-It uses the curses library, so color output is available even on the Command Prompt.
-![running](https://github.com/atoy322/mario/raw/master/screen/run.gif)
+![running](./screen/run.gif)
+
+It is inspired by SL command.
+__There is no use typing CTRL-C while Mario is running because it does not stop the program but stops Mario for 2sec.__
 
 ---
 
@@ -13,11 +15,11 @@ mario
 # fast mode (Mario runs very fast!)
 mario -f
 
-# stop mode (Mario stops 2sec at the center of the terminal screen)
+# stop mode (Mario stops for 2sec at the center of the terminal screen)
 mario -s
 ```
 
 # Build Requirements
 - gcc
 - make
-- curses
+- curses (or pdcurses if your OS is Windows)
