@@ -1,6 +1,7 @@
 # Mario runs in your terminal.
 This is a tiny C program which allows you to let Mario run in your terminal.
 It uses the curses library, so color output is available even on the Command Prompt.
+![running](https://github.com/atoy322/mario/raw/master/screen/run.gif)
 
 ---
 
