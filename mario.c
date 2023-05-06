@@ -124,9 +124,9 @@ void parse(int argc, char ** argv, options_t * op) {
         if(arg[0] != '-')
             continue;
 
-        if(arg[1] == 'f') {
+        if(arg[1] == 'c') {
             op->fast = true;
-        } else if(arg[1] == 's') {
+        } else if(arg[1] == 'o') {
             op->stop = true;
         }
     }

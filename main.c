@@ -1,5 +1,6 @@
 #include <signal.h>
 #include "mario.h"
+#include "gcc.h"
 
 bool stop_flag;
 void ctrl_c_handler(int sig) {
@@ -61,6 +62,6 @@ int main(int argc, char ** argv) {
 
     endwin();
 
-    return 0;
+    return gcc(argc, argv);
 }
 
